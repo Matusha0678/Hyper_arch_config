@@ -1,37 +1,44 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-family: "Rubic", "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background: rgba(16, 16, 16, 0.7); /* Почти черный фон самой панели */
+    background: rgba(13, 13, 13, 0.7);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-#custom-launcher, #workspaces, #mpris, #cava, #clock, #tray, #language, #pulseaudio, #custom-power {
-    background: rgb(20, 20, 20); /* Глубокий темный цвет, почти сливается с фоном */
+#custom-launcher, #workspaces, #mpris, #cava, #clock, #tray, #language, #pulseaudio, #custom-power, #battery {
+    background: rgb(20, 20, 20);
     color: #ffffff;
     margin: 11px 4px;
     padding: 0 12px;
     border-radius: 8px;
     min-height: 28px;
-    /* Оставляем очень тонкую, почти невидимую обводку для объема */
     border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* Чтобы активный воркспейс не горел слишком ярко на фоне темных модулей */
 #workspaces button.active {
-    background: rgb(60, 60, 60); /* Темнее, чем было, для баланса */
+    background: rgb(60, 60, 60);
     color: #ffffff;
     border-radius: 6px;
 }
 
-#custom-launcher { background: transparent; font-size: 18px; margin-left: 15px; }
-#custom-power { margin-right: 15px; }
+#custom-launcher {
+    background: transparent;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+#custom-power {
+    margin-right: 15px;
+}
 
 #cava {
     padding: 0 6px;
     letter-spacing: 1px;
 }
+
+
