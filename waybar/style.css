@@ -1,44 +1,263 @@
+/* ═══════════════════════════════════════════════════════════
+   waybar · style.css  —  Monochrome Void  (blur edition v2)
+   ═══════════════════════════════════════════════════════════ */
+
 * {
     border: none;
     border-radius: 0;
-    font-family: "Rubic", "JetBrainsMono Nerd Font", sans-serif;
+    font-family: "Rubik", "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
+    font-weight: 400;
+    min-height: 0;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 
 window#waybar {
-    background: rgba(13, 13, 13, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(14, 14, 15, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.88);
 }
 
-#custom-launcher, #workspaces, #mpris, #cava, #clock, #tray, #language, #pulseaudio, #custom-power, #battery {
-    background: rgb(20, 20, 20);
-    color: #ffffff;
-    margin: 11px 4px;
-    padding: 0 12px;
-    border-radius: 8px;
-    min-height: 28px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+/* ── Shared pill base ───────────────────────────────────────── */
+#custom-launcher,
+#workspaces,
+#mpris,
+#cava,
+#clock,
+#tray,
+#language,
+#pulseaudio,
+#wireplumber,
+#custom-power,
+#battery,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight {
+    /* полупрозрачный фон — блюр просвечивает сквозь пилл */
+    background: rgba(25, 26, 26, 0.55);
+    color: rgba(255, 255, 255, 0.88);
+    margin: 8px 3px;
+    padding: 0 16px;
+    border-radius: 100px;
+    min-height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Rubik", "JetBrainsMono Nerd Font", sans-serif;
+}
+
+#custom-launcher:hover,
+#clock:hover,
+#tray:hover,
+#language:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-power:hover,
+#battery:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#mpris:hover {
+    background: rgba(50, 51, 52, 0.70);
+    color: rgba(255, 255, 255, 0.82);
+    border-color: rgba(255, 255, 255, 0.30);
+}
+
+/* ── Launcher ───────────────────────────────────────────────── */
+#custom-launcher {
+    font-size: 16px;
+    padding: 0 20px;
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* ── Power ──────────────────────────────────────────────────── */
+#custom-power {
+    margin-right: 10px;
+    padding: 0 18px;
+    color: rgba(255, 255, 255, 0.50);
+}
+#custom-power:hover {
+    color: rgba(255, 120, 120, 0.90);
+    border-color: rgba(255, 100, 100, 0.20);
+    background: rgba(60, 30, 30, 0.70);
+}
+
+/* ── Clock ──────────────────────────────────────────────────── */
+#clock {
+    padding: 0 22px;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.88);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ── Workspaces ─────────────────────────────────────────────── */
+#workspaces {
+    padding: 0 6px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.28);
+    padding: 0 10px;
+    min-height: 38px;
+    border-radius: 100px;
+    border: none;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Rubik", "JetBrainsMono Nerd Font", sans-serif;
+    transition: background 0.18s ease, color 0.18s ease;
 }
 
 #workspaces button.active {
-    background: rgb(60, 60, 60);
-    color: #ffffff;
-    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.09);
 }
 
-#custom-launcher {
-    background: transparent;
-    font-size: 18px;
-    margin-left: 15px;
+#workspaces button.urgent {
+    color: rgba(255, 200, 100, 0.90);
+    background: rgba(255, 180, 60, 0.10);
 }
 
-#custom-power {
-    margin-right: 15px;
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.52);
 }
 
+/* ── Cava ───────────────────────────────────────────────────── */
 #cava {
-    padding: 0 6px;
-    letter-spacing: 1px;
+    padding: 0 12px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.35);
 }
 
+/* ── MPRIS ──────────────────────────────────────────────────── */
+#mpris {
+    padding: 0 16px;
+    color: rgba(255, 255, 255, 0.82);
+}
 
+/* ── Audio ──────────────────────────────────────────────────── */
+#pulseaudio,
+#wireplumber {
+    padding: 0 16px;
+}
+
+#pulseaudio.muted,
+#wireplumber.muted {
+    color: rgba(255, 255, 255, 0.25);
+    background: rgba(22, 22, 24, 0.55);
+}
+
+/* ── Battery ────────────────────────────────────────────────── */
+#battery {
+    padding: 0 16px;
+}
+
+#battery.charging {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+#battery.good {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+#battery.warning:not(.charging) {
+    color: rgba(255, 210, 100, 0.90);
+    border-color: rgba(255, 190, 60, 0.18);
+}
+
+#battery.critical:not(.charging) {
+    color: rgba(255, 110, 110, 0.95);
+    border-color: rgba(255, 80, 80, 0.22);
+    animation: blink 1.2s ease-in-out infinite;
+}
+
+/* ── Network ────────────────────────────────────────────────── */
+#network {
+    padding: 0 16px;
+}
+
+#network.disconnected {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Language ───────────────────────────────────────────────── */
+#language {
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* ── Tray ───────────────────────────────────────────────────── */
+#tray {
+    padding: 0 10px;
+}
+
+#tray > * {
+    padding: 0 5px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ── CPU ────────────────────────────────────────────────────── */
+#cpu {
+    padding: 0 16px;
+}
+
+#cpu.warning {
+    color: rgba(255, 210, 100, 0.90);
+}
+
+#cpu.critical {
+    color: rgba(255, 110, 110, 0.95);
+    animation: blink 1.2s ease-in-out infinite;
+}
+
+/* ── Memory ─────────────────────────────────────────────────── */
+#memory {
+    padding: 0 16px;
+}
+
+#memory.warning {
+    color: rgba(255, 210, 100, 0.90);
+}
+
+#memory.critical {
+    color: rgba(255, 110, 110, 0.95);
+}
+
+/* ── Temperature ────────────────────────────────────────────── */
+#temperature {
+    padding: 0 16px;
+}
+
+#temperature.critical {
+    color: rgba(255, 110, 110, 0.95);
+    animation: blink 1.2s ease-in-out infinite;
+}
+
+/* ── Backlight ──────────────────────────────────────────────── */
+#backlight {
+    padding: 0 16px;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes blink {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.20; }
+    100% { opacity: 1; }
+}
